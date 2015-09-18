@@ -5,7 +5,7 @@
 Plugin Name: Castlegate IT WP Breadcrumb Nav Menu
 Plugin URI: http://github.com/castlegateit/cgit-wp-breadcrumb-nav-menu
 Description: Simple breadcrumb navigation for WordPress using WordPress Nav Menus.
-Version: 1.0
+Version: 1.1
 Author: Castlegate IT
 Author URI: http://www.castlegateit.co.uk/
 License: MIT
@@ -37,10 +37,12 @@ function cgit_breadcrumb_nav_menu ($menu, $sep = ' / ', $home = FALSE, $index = 
 
         $pages = wp_get_nav_menu_items($menu);
 
-        foreach($pages as $page) {
-            _wp_menu_item_classes_by_context($pages);
-            if ($page->current_item_ancestor) {
-                array_splice($links, 1, 0, "<a href='$page->url'>$page->title</a>");
+        if ($pages) {
+            foreach($pages as $page) {
+                _wp_menu_item_classes_by_context($pages);
+                if ($page->current_item_ancestor) {
+                    array_splice($links, 1, 0, "<a href='$page->url'>$page->title</a>");
+                }
             }
         }
 
