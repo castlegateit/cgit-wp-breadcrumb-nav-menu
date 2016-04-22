@@ -16,7 +16,6 @@ License: MIT
  * Load plugin
  */
 add_action('plugins_loaded', function() {
-
     if (!class_exists('Cgit\Breadcrumb')) {
         add_action('admin_notices', function() {
             ?>
@@ -29,7 +28,7 @@ add_action('plugins_loaded', function() {
         return;
     }
 
-    include dirname(__FILE__) . '/breadcrumb-nav-menu.php';
-    include dirname(__FILE__) . '/functions.php';
-    include dirname(__FILE__) . '/shortcodes.php';
+    require_once __DIR__ . '/src/autoload.php';
+    require_once __DIR__ . '/functions.php';
+    require_once __DIR__ . '/shortcodes.php';
 }, 20);
