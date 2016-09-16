@@ -19,11 +19,11 @@ class BreadcrumbNavMenu extends Breadcrumb
         $home = false,
         $index = false
     ) {
-        // Call parent constructor
-        parent::__construct($sep, $home, $index);
-
         // Set navigation menu
         $this->menu = $menu;
+
+        // Call parent constructor
+        parent::__construct($sep, $home, $index);
     }
 
     /**
@@ -36,7 +36,7 @@ class BreadcrumbNavMenu extends Breadcrumb
         $pages = wp_get_nav_menu_items($this->menu);
 
         if ($pages) {
-            foreach($pages as $page) {
+            foreach ($pages as $page) {
                 _wp_menu_item_classes_by_context($pages);
 
                 if ($page->current_item_ancestor) {
