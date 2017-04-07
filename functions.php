@@ -15,7 +15,17 @@ function cgit_breadcrumb_nav_menu(
     $home = false,
     $index = false
 ) {
-    $breadcrumb = new Cgit\BreadcrumbNavMenu($menu, $sep, $home, $index);
+    $args = [];
 
-    return $breadcrumb->render();
+    if ($home) {
+        $args['home'] = $home;
+    }
+
+    if ($index) {
+        $args['index'] = $index;
+    }
+
+    $crumb = new Cgit\BreadcrumbNavMenu($menu, $args);
+
+    return $crumb->render($sep);
 }

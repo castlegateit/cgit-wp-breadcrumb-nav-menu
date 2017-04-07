@@ -1,7 +1,13 @@
 # Castlegate IT WP Breadcrumb Nav Menu #
 
-Castlegate IT WP Breadcrumb adds a simple breadcrumb navigation to WordPress. It works with WordPress Nav Menus defined in the `Appearance` tab of WordPress. The function `cgit_breadcrumb_nav_menu($sep, $home, $index)` will return a complete breadbrumb navigation, with each item separated by `$sep`. The default separator is ` / `. The `$home` argument is optional and can be used to specify the name of the home page (default "Home"). The `$index` argument is optional and can be used to specify the name of the posts index (default "Posts"). The plugin also provides a shortcode:
+Extends the [Castlegate IT WP Breadcrumb]() plugin to use a WordPress navigation menu for page structure instead of the underlying page hierarchy. Usage is similar to `Cgit\Breadcrumb`, but the constructor requires an additional argument that specifies the name, ID, slug, or location of the navigation menu:
 
-    [breadcrumb_nav_menu sep=" / " home="Home" index="News"]
+~~~ php
+$crumb = new Cgit\BreadcrumbNavMenu($menu, $args = []);
+~~~
 
-The separator, home, and index arguments are optional.
+For backwards compatibility, the plugin also provides a function for rendering a breadcrumb navigation, equivalent to the `render` method:
+
+~~~ php
+$foo = cgit_breadcrumb($menu, $sep, $home, $index);
+~~~
