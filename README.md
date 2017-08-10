@@ -6,8 +6,8 @@ Extends the [Castlegate IT WP Breadcrumb](http://github.com/castlegateit/cgit-wp
 $crumb = new Cgit\BreadcrumbNavMenu($menu, $args = []);
 ~~~
 
-For backwards compatibility, the plugin also provides a function for rendering a breadcrumb navigation, equivalent to the `render` method:
+For backwards compatibility, the plugin also provides a function for rendering a breadcrumb navigation, equivalent to the `render` method provided by the parent `Cgit\Breadcrumb` class:
 
 ~~~ php
-$foo = cgit_breadcrumb($menu, $sep, $home, $index);
+$foo = cgit_breadcrumb_nav_menu($menu, $sep, $home, $index);
 ~~~
